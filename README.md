@@ -1,7 +1,7 @@
 <div align="center">
 
 # ComfyUI 汉化
-**The most powerful and modular AI engine for content creation.**
+**最强大的模块化 AI 内容创作引擎。**
 
 
 [![Website][website-shield]][website-url]
@@ -35,405 +35,405 @@
 <br>
 </div>
 
-ComfyUI is the AI creation engine for visual professionals who demand control over every model, every parameter, and every output. Its powerful and modular node graph interface empowers creatives to generate images, videos, 3D models, audio, and more...
-- ComfyUI natively supports the latest open-source state of the art models.
-- It is by far the most optimized inference engine for diffusion models in the world with a focus on local consumer hardware.
-- Can run even the biggest open source models on as low as 4GB vram + 8GB ram relatively quickly (saturating your GPU compute) using our state of the art asynchronous weight streaming technology.
-- [Partner nodes](https://docs.comfy.org/tutorials/partner-nodes/overview#partner-nodes) provide access to the best closed source models such as Nano Banana, Seedance, Hunyuan3D, etc.
-- It is available on Windows, Linux, and macOS, locally with our [desktop application](https://www.comfy.org/download), our [portable install](#installing) or on our [cloud](https://www.comfy.org/cloud).
-- The most sophisticated workflows can be exposed through a simple UI thanks to App Mode.
-- It integrates seamlessly into production pipelines with our API endpoints.
+ComfyUI 是面向视觉创作者的 AI 创作引擎，让你掌控每一个模型、每一个参数和每一个输出。其强大而模块化的节点图界面，帮助创作者生成图像、视频、3D 模型、音频等内容……
+- ComfyUI 原生支持最新的开源前沿模型。
+- 它是目前全球针对扩散模型优化得最好的推理引擎，专注于本地消费级硬件。
+- 借助先进的异步权重流式加载技术，即使运行最大的开源模型，也只需 4GB 显存 + 8GB 内存即可相对快速地运行（充分压榨 GPU 算力）。
+- [合作方节点](https://docs.comfy.org/tutorials/partner-nodes/overview#partner-nodes) 提供对顶级闭源模型的访问，例如 Nano Banana、Seedance、Hunyuan3D 等。
+- 支持 Windows、Linux 和 macOS，可本地使用我们的[桌面应用](https://www.comfy.org/download)、[便携版安装](#安装)，也可使用我们的[云端](https://www.comfy.org/cloud)。
+- 借助 App Mode（应用模式），最复杂的工作流也能通过简洁的界面呈现。
+- 通过 API 端点，可无缝集成到生产流程中。
 
-## Get Started
+## 快速开始
 
-### Local
+### 本地
 
-#### [Desktop Application](https://www.comfy.org/download)
-- The easiest way to get started.
-- Available on Windows & macOS.
+#### [桌面应用](https://www.comfy.org/download)
+- 最简单的上手方式。
+- 支持 Windows 与 macOS。
 
-#### [Manual Install](#manual-install-windows-linux)
-Supports all operating systems and GPU types (NVIDIA, AMD, Intel, Apple Silicon, Ascend).
+#### [手动安装](#手动安装windowslinux)
+支持所有操作系统和 GPU 类型（NVIDIA、AMD、Intel、Apple Silicon、Ascend）。
 
-### Cloud
+### 云端
 
 #### [Comfy Cloud](https://www.comfy.org/cloud)
-- Our official paid cloud version for those who can't afford local hardware.
+- 官方付费云版本，适合没有本地硬件的用户。
 
-## Examples
-See what ComfyUI can do with the [newer template workflows](https://comfy.org/workflows) or old [example workflows](https://comfyanonymous.github.io/ComfyUI_examples/).
+## 示例
+了解 ComfyUI 能做什么：[较新的模板工作流](https://comfy.org/workflows) 或旧的[示例工作流](https://comfyanonymous.github.io/ComfyUI_examples/)。
 
-## Features
-- A visual node graph for building and reusing image, video, audio, 3D, and text workflows without code.
-- Reusable subgraphs, workflow templates, App Mode, and a local API for integrating workflows into applications.
-- Efficient local execution with asynchronous queueing, partial graph re-execution, smart VRAM and RAM management, model offloading, and support for quantized models.
-- Broad native model support. This is a representative list; browse the [workflow library](https://comfy.org/workflows/) for maintained, ready-to-run templates.
-  - [Image generation](https://comfy.org/workflows/tag/text-to-image/): Stable Diffusion 1.5, SDXL, SD3.5, Flux.1, Flux.2, Qwen Image, Z-Image, Hunyuan Image 2.1, HiDream, Lumina Image 2.0, Chroma, Anima, LongCat Image, Ideogram 4, Krea 2, MageFlow, Microsoft Lens, PixelDiT, Kandinsky 5, Ernie Image and Moss Image.
-  - [Image editing](https://comfy.org/workflows/tag/image-edit/): Flux Kontext, Flux.2 Klein, Qwen Image Edit, HiDream E1.1 and O1, OmniGen2, Boogu, JoyImage Edit, MageFlow Edit, and LongCat Image Edit.
-  - [Video generation](https://comfy.org/workflows/tag/video-generation/): Wan 2.1 and 2.2, LTX-Video 2 and 2.3, HunyuanVideo 1.5, Kandinsky 5 Video, CogVideoX, Cosmos Predict2, Bernini-R, SCAIL 2, and Mochi.
-  - [Audio and video generation](https://comfy.org/workflows/): MiniMax H3 and LTX-AV.
-  - [Audio generation](https://comfy.org/workflows/tag/text-to-audio/): ACE-Step 1.5, Stable Audio 3, MiniMax Music 3 and Yue 2.
-  - [3D and vision](https://comfy.org/workflows/): Hunyuan3D 2.1, TripoSplat, SeedVR2, SUPIR, Depth Anything 3, MoGe, SAM 3 and 3.1, RT-DETRv4, and BiRefNet.
-  - [Text generation](https://comfy.org/workflows/tag/text-generation/): Gemma 3 and 4, Qwen3, Qwen3.5, and Qwen3-VL, including multimodal inputs.
-- Load complete checkpoints or separate diffusion models, VAEs, text encoders, LoRAs, ControlNets, adapters, and upscalers from supported model formats.
-- Built-in tools for inpainting, outpainting, reference conditioning, masks and compositing, model merging, upscaling, frame interpolation, segmentation, depth estimation, and media processing.
-- Save and load workflows as JSON, or recover complete workflows and seeds from supported generated media.
-- Runs fully offline: core does not download anything unless you request it. Use `--offline` to disable the optional paid [Comfy API nodes](https://docs.comfy.org/tutorials/api-nodes/overview) and force all built-in functionality to stay offline, or `--disable-partner-nodes` to only disable the API nodes.
-- Extend ComfyUI with custom nodes
-- Configure additional model locations with [`extra_model_paths.yaml`](extra_model_paths.yaml.example).
-- Support for saving and loading high bit depth images and videos: 16 bit PNG images, 32 bit EXR, 10 bit AVIF are supported and more.
-- Support for saving and loading HDR videos and images in various formats.
+## 功能特性
+- 可视化节点图，无需编写代码即可构建并复用图像、视频、音频、3D 和文本工作流。
+- 可复用的子图、工作流模板、App Mode，以及用于将工作流集成到应用中的本地 API。
+- 高效的本地执行：异步排队、局部图重执行、智能显存与内存管理、模型卸载，并支持量化模型。
+- 广泛的原生模型支持。以下仅为代表性列表；可浏览[工作流库](https://comfy.org/workflows/)获取持续维护、开箱即用的模板。
+  - [图像生成](https://comfy.org/workflows/tag/text-to-image/)：Stable Diffusion 1.5、SDXL、SD3.5、Flux.1、Flux.2、Qwen Image、Z-Image、Hunyuan Image 2.1、HiDream、Lumina Image 2.0、Chroma、Anima、LongCat Image、Ideogram 4、Krea 2、MageFlow、Microsoft Lens、PixelDiT、Kandinsky 5、Ernie Image 和 Moss Image。
+  - [图像编辑](https://comfy.org/workflows/tag/image-edit/)：Flux Kontext、Flux.2 Klein、Qwen Image Edit、HiDream E1.1 和 O1、OmniGen2、Boogu、JoyImage Edit、MageFlow Edit 和 LongCat Image Edit。
+  - [视频生成](https://comfy.org/workflows/tag/video-generation/)：Wan 2.1 和 2.2、LTX-Video 2 和 2.3、HunyuanVideo 1.5、Kandinsky 5 Video、CogVideoX、Cosmos Predict2、Bernini-R、SCAIL 2 和 Mochi。
+  - [音视频生成](https://comfy.org/workflows/)：MiniMax H3 和 LTX-AV。
+  - [音频生成](https://comfy.org/workflows/tag/text-to-audio/)：ACE-Step 1.5、Stable Audio 3、MiniMax Music 3 和 Yue 2。
+  - [3D 与视觉](https://comfy.org/workflows/)：Hunyuan3D 2.1、TripoSplat、SeedVR2、SUPIR、Depth Anything 3、MoGe、SAM 3 和 3.1、RT-DETRv4 和 BiRefNet。
+  - [文本生成](https://comfy.org/workflows/tag/text-generation/)：Gemma 3 和 4、Qwen3、Qwen3.5 和 Qwen3-VL，包括多模态输入。
+- 可从受支持的模型格式加载完整 checkpoint，或单独加载扩散模型、VAE、文本编码器、LoRA、ControlNet、适配器和放大器。
+- 内置工具：局部重绘、扩图、参考条件、蒙版与合成、模型合并、放大、帧插值、分割、深度估计和媒体处理。
+- 工作流可保存和加载为 JSON，也可从受支持的生成媒体中恢复完整工作流与种子。
+- 完全可离线运行：核心功能不会主动下载任何内容，除非你主动请求。使用 `--offline` 可禁用可选的付费 [Comfy API 节点](https://docs.comfy.org/tutorials/api-nodes/overview)并强制所有内置功能保持离线；或使用 `--disable-partner-nodes` 仅禁用 API 节点。
+- 通过自定义节点扩展 ComfyUI
+- 通过 [`extra_model_paths.yaml`](extra_model_paths.yaml.example) 配置额外的模型目录。
+- 支持保存和加载高位深图像与视频：支持 16 位 PNG、32 位 EXR、10 位 AVIF 等，更多格式持续增加。
+- 支持保存和加载多种格式的 HDR 视频和图像。
 
 
-## Release Process
+## 发布流程
 
-ComfyUI follows a weekly release cycle targeting Monday but this regularly changes because of model releases or large changes to the codebase. There are three interconnected repositories:
+ComfyUI 遵循每周一发布的大致节奏，但遇到模型发布或代码库大改时会经常调整。项目由三个相互关联的仓库组成：
 
 1. **[ComfyUI Core](https://github.com/comfyanonymous/ComfyUI)**
-   - Releases a new major stable version (e.g., v0.7.0) roughly every 2 weeks.
-   - Starting from v0.4.0 patch versions will be used for fixes backported onto the current stable release.
-   - Minor versions will be used for releases off the master branch.
-   - Patch versions may still be used for releases on the master branch in cases where a backport would not make sense.
-   - Commits outside of the stable release tags may be very unstable and break many custom nodes.
-   - Serves as the foundation for the desktop release
+   - 大约每 2 周发布一个新的主稳定版本（例如 v0.7.0）。
+   - 从 v0.4.0 起，补丁版本用于将修复回合到当前稳定版。
+   - 次版本号用于 master 分支上的发布。
+   - 在不适合回合的情况下，master 分支上的发布仍可能使用补丁版本号。
+   - 稳定版标签之外的提交可能非常不稳定，并导致许多自定义节点失效。
+   - 作为桌面版发布的基础
 
 2. **[Comfy Desktop](https://github.com/Comfy-Org/Comfy-Desktop)**
-   - Builds a new release using the latest stable core version
+   - 使用最新稳定核心版本构建新发布
 
 3. **[ComfyUI Frontend](https://github.com/Comfy-Org/ComfyUI_frontend)**
-   - Every 2+ weeks frontend updates are merged into the core repository
-   - Features are frozen for the upcoming core release
-   - Development continues for the next release cycle
+   - 每 2 周以上，前端更新会合并到核心仓库
+   - 即将发布的核心版本会冻结功能
+   - 开发工作继续进入下一个发布周期
 
-## Shortcuts
+## 快捷键
 
-| Keybind                            | Explanation                                                                                                        |
+| 按键                            | 说明                                                                                                        |
 |------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| `Ctrl` + `Enter`                      | Queue up current graph for generation                                                                              |
-| `Ctrl` + `Shift` + `Enter`              | Queue up current graph as first for generation                                                                     |
-| `Ctrl` + `Alt` + `Enter`                | Cancel current generation                                                                                          |
-| `Ctrl` + `Z`/`Ctrl` + `Y`                 | Undo/Redo                                                                                                          |
-| `Ctrl` + `S`                          | Save workflow                                                                                                      |
-| `Ctrl` + `O`                          | Load workflow                                                                                                      |
-| `Ctrl` + `A`                          | Select all nodes                                                                                                   |
-| `Alt `+ `C`                           | Collapse/uncollapse selected nodes                                                                                 |
-| `Ctrl` + `M`                          | Mute/unmute selected nodes                                                                                         |
-| `Ctrl` + `B`                           | Bypass selected nodes (acts like the node was removed from the graph and the wires reconnected through)            |
-| `Delete`/`Backspace`                   | Delete selected nodes                                                                                              |
-| `Ctrl` + `Backspace`                   | Delete the current graph                                                                                           |
-| `Space`                              | Move the canvas around when held and moving the cursor                                                             |
-| `Ctrl`/`Shift` + `Click`                 | Add clicked node to selection                                                                                      |
-| `Ctrl` + `C`/`Ctrl` + `V`                  | Copy and paste selected nodes (without maintaining connections to outputs of unselected nodes)                     |
-| `Ctrl` + `C`/`Ctrl` + `Shift` + `V`          | Copy and paste selected nodes (maintaining connections from outputs of unselected nodes to inputs of pasted nodes) |
-| `Shift` + `Drag`                       | Move multiple selected nodes at the same time                                                                      |
-| `Ctrl` + `D`                           | Load default graph                                                                                                 |
-| `Alt` + `+`                          | Canvas Zoom in                                                                                                     |
-| `Alt` + `-`                          | Canvas Zoom out                                                                                                    |
-| `Ctrl` + `Shift` + LMB + Vertical drag | Canvas Zoom in/out                                                                                                 |
-| `P`                                  | Pin/Unpin selected nodes                                                                                           |
-| `Ctrl` + `G`                           | Group selected nodes                                                                                               |
-| `Q`                                 | Toggle visibility of the queue                                                                                     |
-| `H`                                  | Toggle visibility of history                                                                                       |
-| `R`                                  | Refresh graph                                                                                                      |
-| `F`                                  | Show/Hide menu                                                                                                      |
-| `.`                                  | Fit view to selection (Whole graph when nothing is selected)                                                        |
-| Double-Click LMB                   | Open node quick search palette                                                                                     |
-| `Shift` + Drag                       | Move multiple wires at once                                                                                        |
-| `Ctrl` + `Alt` + LMB                   | Disconnect all wires from clicked slot                                                                             |
+| `Ctrl` + `Enter`                      | 将当前图加入生成队列                                                                              |
+| `Ctrl` + `Shift` + `Enter`              | 将当前图作为首个任务加入生成队列                                                                     |
+| `Ctrl` + `Alt` + `Enter`                | 取消当前生成                                                                                          |
+| `Ctrl` + `Z`/`Ctrl` + `Y`                 | 撤销/重做                                                                                                          |
+| `Ctrl` + `S`                          | 保存工作流                                                                                                      |
+| `Ctrl` + `O`                          | 加载工作流                                                                                                      |
+| `Ctrl` + `A`                          | 全选节点                                                                                                   |
+| `Alt `+ `C`                           | 折叠/展开所选节点                                                                                 |
+| `Ctrl` + `M`                          | 静音/取消静音所选节点                                                                                         |
+| `Ctrl` + `B`                           | 绕过所选节点（效果等同于从图中移除该节点并重新连接线路）            |
+| `Delete`/`Backspace`                   | 删除所选节点                                                                                              |
+| `Ctrl` + `Backspace`                   | 删除当前图                                                                                           |
+| `Space`                              | 按住并移动光标时平移画布                                                             |
+| `Ctrl`/`Shift` + `Click`                 | 将点击的节点加入选择                                                                                      |
+| `Ctrl` + `C`/`Ctrl` + `V`                  | 复制并粘贴所选节点（不保留指向未选中节点输出的连接）                     |
+| `Ctrl` + `C`/`Ctrl` + `Shift` + `V`          | 复制并粘贴所选节点（保留未选中节点输出到粘贴节点输入的连接） |
+| `Shift` + `Drag`                       | 同时移动多个所选节点                                                                      |
+| `Ctrl` + `D`                           | 加载默认图                                                                                                 |
+| `Alt` + `+`                          | 画布放大                                                                                                     |
+| `Alt` + `-`                          | 画布缩小                                                                                                    |
+| `Ctrl` + `Shift` + LMB + Vertical drag | 画布放大/缩小                                                                                                 |
+| `P`                                  | 固定/取消固定所选节点                                                                                           |
+| `Ctrl` + `G`                           | 将所选节点编组                                                                                               |
+| `Q`                                 | 显示/隐藏队列                                                                                     |
+| `H`                                 | 显示/隐藏历史记录                                                                                       |
+| `R`                                 | 刷新图                                                                                                      |
+| `F`                                 | 显示/隐藏菜单                                                                                                      |
+| `.`                                  | 缩放到所选内容（未选中时为整张图）                                                        |
+| Double-Click LMB                   | 打开节点快速搜索面板                                                                                     |
+| `Shift` + Drag                       | 同时移动多根连线                                                                                        |
+| `Ctrl` + `Alt` + LMB                   | 断开点击插槽上的所有连线                                                                             |
 
-`Ctrl` can also be replaced with `Cmd` instead for macOS users
+macOS 用户也可以将 `Ctrl` 替换为 `Cmd`
 
-# Installing
+# 安装
 
-## Windows and Mac
+## Windows 与 Mac
 
-We highly recommend using the [desktop app](https://comfy.org/download):
+我们强烈推荐使用[桌面应用](https://comfy.org/download)：
 
-### [Link to Download](https://comfy.org/download)
+### [下载链接](https://comfy.org/download)
 
-The desktop app is the easiest and best way to use ComfyUI for new users.
+对于新用户来说，桌面应用是使用 ComfyUI 最简单、最好的方式。
 
-## Windows Portable
+## Windows 便携版
 
-There is a portable standalone build for Windows that should work for running on Nvidia GPUs or for running on your CPU only. It is not recommended for regular users. Regular users should use the desktop app above.
+Windows 提供了便携独立版本，可在 Nvidia GPU 或仅 CPU 上运行。不建议普通用户使用，普通用户应使用上面的桌面应用。
 
-[Direct link to download (nvidia)](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia.7z)
+[直接下载链接（Nvidia）](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia.7z)
 
-Simply download, extract with [7-Zip](https://7-zip.org) or with the windows explorer on recent windows versions and run. For smaller models you normally only need to put the checkpoints (the huge ckpt/safetensors files) in: ComfyUI\models\checkpoints but many of the larger models have multiple files. Make sure to follow the instructions to know which subfolder to put them in ComfyUI\models\
+下载后，使用 [7-Zip](https://7-zip.org) 或较新 Windows 版本自带的资源管理器解压并运行。对于较小的模型，通常只需将 checkpoint（巨大的 ckpt/safetensors 文件）放入：ComfyUI\models\checkpoints，但许多较大的模型包含多个文件。请务必按照说明将它们放入 ComfyUI\models\ 的相应子目录。
 
-If you have trouble extracting it, right click the file -> properties -> unblock
+如果解压遇到问题，右键文件 -> 属性 -> 解除锁定
 
-The portable above currently comes with python 3.13 and pytorch cuda 13.0. Update your Nvidia drivers if it doesn't start.
+当前便携版附带 Python 3.13 和 PyTorch CUDA 13.0。如果无法启动，请更新 Nvidia 驱动。
 
-#### All Official Portable Downloads:
+#### 所有官方便携版下载：
 
-[Portable for AMD GPUs](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_amd.7z)
+[适用于 AMD GPU 的便携版](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_amd.7z)
 
-[Portable for Intel GPUs](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_intel.7z)
+[适用于 Intel GPU 的便携版](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_intel.7z)
 
-[Portable for Nvidia GPUs](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia.7z) (supports 20 series and above).
+[适用于 Nvidia GPU 的便携版](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia.7z)（支持 20 系列及以上）。
 
-[Portable for Nvidia GPUs with pytorch cuda 12.6 and python 3.12](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia_cu126.7z) (Supports Nvidia 10 series and older GPUs, DO NOT USE THIS ON NEWER 20 SERIES AND ABOVE GPUS).
+[适用于 Nvidia GPU、PyTorch CUDA 12.6 与 Python 3.12 的便携版](https://github.com/comfyanonymous/ComfyUI/releases/latest/download/ComfyUI_windows_portable_nvidia_cu126.7z)（支持 Nvidia 10 系列及更旧的 GPU，请勿在 20 系列及以上的新 GPU 上使用）。
 
-#### How do I share models between another UI and ComfyUI?
+#### 如何在另一个 UI 与 ComfyUI 之间共享模型？
 
-See the [Config file](extra_model_paths.yaml.example) to set the search paths for models. In the standalone windows build you can find this file in the ComfyUI directory. Rename this file to extra_model_paths.yaml and edit it with your favorite text editor.
+参见[配置文件](extra_model_paths.yaml.example)设置模型搜索路径。在 Windows 独立版中，该文件位于 ComfyUI 目录下。将其重命名为 extra_model_paths.yaml，并用你喜欢的文本编辑器编辑。
 
 
 ## [comfy-cli](https://docs.comfy.org/comfy-cli/getting-started)
 
-You can install and start ComfyUI using comfy-cli:
+你可以使用 comfy-cli 安装并启动 ComfyUI：
 ```bash
 pip install comfy-cli
 comfy install
 ```
 
-## Manual Install (Windows, Linux)
+## 手动安装（Windows、Linux）
 
-Python 3.14 works but some custom nodes may have issues. The free threaded variant works but some dependencies will enable the GIL so it's not fully supported.
+Python 3.14 可用，但部分自定义节点可能存在问题。free-threaded 版本也可用，但部分依赖会启用 GIL，因此并非完全支持。
 
-Python 3.13 is very well supported. If you have trouble with some custom node dependencies on 3.13 you can try 3.12
+Python 3.13 的支持非常好。如果在 3.13 上遇到某些自定义节点依赖问题，可以尝试 3.12。
 
-torch 2.7 is minimally supported but using a newer version is extremely recommended. Using a cu130 or above version of pytorch is required on Nvidia 20 series and above. Some features and optimizations might only work on newer versions. We generally recommend using the latest major version of pytorch with the latest cuda version unless it is less than 2 weeks old. If your pytorch is more than 6 months old, please update it.
+torch 2.7 仅提供最低限度支持，强烈建议使用更新版本。在 Nvidia 20 系列及以上显卡上必须使用 cu130 或更高版本的 PyTorch。部分功能和优化可能只在较新版本上生效。除非最新 PyTorch 主版本发布不足 2 周，否则通常建议使用最新主版本配合最新 CUDA 版本。如果你的 PyTorch 已超过 6 个月，请更新。
 
-### Instructions:
+### 操作步骤：
 
-Git clone this repo.
+Git clone 本仓库。
 
-Put your SD checkpoints (the huge ckpt/safetensors files) in: models/checkpoints
+将你的 SD checkpoint（巨大的 ckpt/safetensors 文件）放入：models/checkpoints
 
-Put your VAE in: models/vae
+将 VAE 放入：models/vae
 
 
-### AMD GPUs (Linux)
+### AMD GPU（Linux）
 
-AMD users can install rocm and pytorch with pip if you don't have it already installed, this is the command to install the stable version:
+如果尚未安装 ROCm 和 PyTorch，AMD 用户可以通过 pip 安装，以下命令用于安装稳定版：
 
 ```pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm7.2```
 
-This is the command to install the nightly with ROCm 7.2 which might have some performance improvements:
+以下命令用于安装 ROCm 7.2 的 nightly 版本，可能带来一些性能提升：
 
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/rocm7.2```
 
 
-### AMD GPUs (Windows, ROCm 10.0)
+### AMD GPU（Windows，ROCm 10.0）
 
-Use AMD's [multi-architecture PyTorch packages](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html). The `device-*` extras install your GPU's kernels and the matching ROCm runtime automatically; a separate HIP SDK installation is not needed.
+使用 AMD 的[多架构 PyTorch 包](https://rocm.docs.amd.com/projects/ai-ecosystem/en/latest/frameworks/pytorch/install.html)。`device-*` extras 会自动安装你的 GPU 内核及匹配的 ROCm 运行时，无需单独安装 HIP SDK。
 
-Use Windows 11, a current [AMD graphics driver](https://www.amd.com/en/support/download/drivers.html), and 64-bit Python 3.13.
+请使用 Windows 11、最新的 [AMD 显卡驱动](https://www.amd.com/en/support/download/drivers.html) 以及 64 位 Python 3.13。
 
-The install command below uses `device-all` to install kernels for all supported GPUs. To reduce download size and disk usage, optionally replace **both** occurrences of `device-all` with the target for your GPU:
+下面的安装命令使用 `device-all` 安装所有受支持 GPU 的内核。为减少下载体积和磁盘占用，可选择将**两处** `device-all` 都替换为你 GPU 对应的目标：
 
 | GPU | Device extra |
 | --- | --- |
-| RX 9070 / XT, Radeon AI PRO R9700 | `device-gfx1201` |
+| RX 9070 / XT、Radeon AI PRO R9700 | `device-gfx1201` |
 | RX 9060 / XT | `device-gfx1200` |
 | RX 7900 XT / XTX | `device-gfx1100` |
 | RX 7700 XT / 7800 XT | `device-gfx1101` |
 | RX 7600 / XT | `device-gfx1102` |
-| Ryzen AI Max / Max+ (Strix Halo) | `device-gfx1151` |
+| Ryzen AI Max / Max+（Strix Halo） | `device-gfx1151` |
 
-**Note:** This table only lists examples. A GPU missing from it may still be supported: supported architectures include RDNA 2, RDNA 3, RDNA 3.5, and RDNA 4. Keep `device-all` to install kernels for all supported targets. For other models, see AMD's [GPU target table](https://github.com/ROCm/TheRock/blob/main/RELEASES.md#gfx-target-lookup-table) and [ROCm compatibility matrix](https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html).
+**注意：** 此表仅列举示例。未列出的 GPU 仍可能受支持：受支持的架构包括 RDNA 2、RDNA 3、RDNA 3.5 和 RDNA 4。保留 `device-all` 可安装所有受支持目标的内核。其他型号请参见 AMD 的 [GPU 目标表](https://github.com/ROCm/TheRock/blob/main/RELEASES.md#gfx-target-lookup-table) 与 [ROCm 兼容性矩阵](https://rocm.docs.amd.com/en/docs-10.0.0/compatibility/compatibility-matrix.html)。
 
-**ROCm 10.0.0 with PyTorch 2.13:**
+**ROCm 10.0.0 与 PyTorch 2.13：**
 
 ```bat
 pip install --index-url https://stable.repo.amd.com/rocm/whl-next/ "torch[device-all]==2.13.0+rocm10.0.0" "torchvision[device-all]==0.28.0+rocm10.0.0" "torchaudio==2.11.0.2+rocm10.0.0"
 ```
 
-### Intel GPUs (Windows and Linux)
+### Intel GPU（Windows 与 Linux）
 
-Intel Arc GPU users can install native PyTorch with torch.xpu support using pip. More information can be found [here](https://pytorch.org/docs/main/notes/get_start_xpu.html)
+Intel Arc GPU 用户可以通过 pip 安装支持 torch.xpu 的原生 PyTorch。更多信息见[此处](https://pytorch.org/docs/main/notes/get_start_xpu.html)
 
-1. To install PyTorch xpu, use the following command:
+1. 安装 PyTorch xpu，使用以下命令：
 
 ```pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/xpu```
 
-This is the command to install the Pytorch xpu nightly which might have some performance improvements:
+以下命令用于安装 PyTorch xpu nightly 版本，可能带来一些性能提升：
 
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/xpu```
 
 ### NVIDIA
 
-Nvidia users should install stable pytorch using this command:
+Nvidia 用户应使用以下命令安装稳定版 PyTorch：
 
 ```pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130```
 
-This is the command to install pytorch nightly instead which might have performance improvements.
+以下命令用于安装 PyTorch nightly 版本，可能带来一些性能提升。
 
 ```pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu132```
 
-#### Troubleshooting
+#### 疑难排查
 
-If you get the "Torch not compiled with CUDA enabled" error, uninstall torch with:
+如果遇到 "Torch not compiled with CUDA enabled" 错误，请先卸载 torch：
 
 ```pip uninstall torch```
 
-And install it again with the command above.
+再用上面的命令重新安装。
 
-### Dependencies
+### 依赖
 
-Install the dependencies by opening your terminal inside the ComfyUI folder and:
+在 ComfyUI 目录中打开终端，安装依赖：
 
 ```pip install -r requirements.txt```
 
-After this you should have everything installed and can proceed to running ComfyUI.
+完成以上步骤后，所有依赖应已安装完毕，可以开始运行 ComfyUI。
 
-### Others:
+### 其他：
 
-#### Apple Mac silicon
+#### Apple Mac Silicon
 
-You can install ComfyUI in Apple Mac silicon (M1, M2, M3 or M4) with any recent macOS version.
+你可以在运行较新 macOS 的 Apple Mac Silicon（M1、M2、M3 或 M4）上安装 ComfyUI。
 
-1. Install pytorch nightly. For instructions, read the [Accelerated PyTorch training on Mac](https://developer.apple.com/metal/pytorch/) Apple Developer guide (make sure to install the latest pytorch nightly).
-1. Follow the [ComfyUI manual installation](#manual-install-windows-linux) instructions for Windows and Linux.
-1. Install the ComfyUI [dependencies](#dependencies). If you have another Stable Diffusion UI [you might be able to reuse the dependencies](#i-already-have-another-ui-for-stable-diffusion-installed-do-i-really-have-to-install-all-of-these-dependencies).
-1. Launch ComfyUI by running `python main.py`
+1. 安装 PyTorch nightly。具体步骤请阅读 Apple 开发者指南 [Accelerated PyTorch training on Mac](https://developer.apple.com/metal/pytorch/)（务必安装最新的 PyTorch nightly）。
+1. 按 [ComfyUI 手动安装](#手动安装windowslinux)中的 Windows/Linux 步骤操作。
+1. 安装 ComfyUI [依赖](#依赖)。如果你还装了其他 Stable Diffusion UI，[可以复用这些依赖](#i-already-have-another-ui-for-stable-diffusion-installed-do-i-really-have-to-install-all-of-these-dependencies)。
+1. 运行 `python main.py` 启动 ComfyUI
 
-> **Note**: Remember to add your models, VAE, LoRAs etc. to the corresponding Comfy folders, as discussed in [ComfyUI manual installation](#manual-install-windows-linux).
+> **注意**：记得将模型、VAE、LoRAs 等放入对应的 Comfy 目录，详见 [ComfyUI 手动安装](#手动安装windowslinux)。
 
-#### Huawei Ascend NPUs
+#### 华为昇腾 NPU
 
-For models compatible with Huawei Ascend Extension for PyTorch (torch_npu). To get started, ensure your environment meets the prerequisites outlined on the [installation](https://ascend.github.io/docs/sources/ascend/quick_install.html) page. Here's a step-by-step guide tailored to your platform and installation method:
+适用于兼容华为 Ascend Extension for PyTorch（torch_npu）的模型。开始前，请确保环境满足[安装](https://ascend.github.io/docs/sources/ascend/quick_install.html)页面列出的前提条件。以下是按平台和安装方式整理的步骤：
 
-1. Begin by installing the recommended or newer kernel version for Linux as specified in the Installation page of torch-npu, if necessary.
-2. Proceed with the installation of Ascend Basekit, which includes the driver, firmware, and CANN, following the instructions provided for your specific platform.
-3. Next, install the necessary packages for torch-npu by adhering to the platform-specific instructions on the [Installation](https://ascend.github.io/docs/sources/pytorch/install.html#pytorch) page.
-4. Finally, adhere to the [ComfyUI manual installation](#manual-install-windows-linux) guide for Linux. Once all components are installed, you can run ComfyUI as described earlier.
+1. 如有必要，先按 torch-npu 安装页面的说明，安装推荐的或更新的 Linux 内核版本。
+2. 按照对应平台的说明安装 Ascend Basekit，其中包括驱动、固件和 CANN。
+3. 按[安装](https://ascend.github.io/docs/sources/pytorch/install.html#pytorch)页面的平台相关说明安装 torch-npu 所需软件包。
+4. 最后按 Linux 的 [ComfyUI 手动安装](#手动安装windowslinux)指南操作。所有组件安装完成后，即可按前述方式运行 ComfyUI。
 
-#### Cambricon MLUs
+#### 寒武纪 MLU
 
-For models compatible with Cambricon Extension for PyTorch (torch_mlu). Here's a step-by-step guide tailored to your platform and installation method:
+适用于兼容 Cambricon Extension for PyTorch（torch_mlu）的模型。以下是按平台和安装方式整理的步骤：
 
-1. Install the Cambricon CNToolkit by adhering to the platform-specific instructions on the [Installation](https://www.cambricon.com/docs/sdk_1.15.0/cntoolkit_3.7.2/cntoolkit_install_3.7.2/index.html)
-2. Next, install the PyTorch(torch_mlu) following the instructions on the [Installation](https://www.cambricon.com/docs/sdk_1.15.0/cambricon_pytorch_1.17.0/user_guide_1.9/index.html)
-3. Launch ComfyUI by running `python main.py`
+1. 按[安装](https://www.cambricon.com/docs/sdk_1.15.0/cntoolkit_3.7.2/cntoolkit_install_3.7.2/index.html)页面的平台相关说明安装 Cambricon CNToolkit
+2. 按[安装](https://www.cambricon.com/docs/sdk_1.15.0/cambricon_pytorch_1.17.0/user_guide_1.9/index.html)页面的说明安装 PyTorch（torch_mlu）
+3. 运行 `python main.py` 启动 ComfyUI
 
-#### Iluvatar Corex
+#### 天数智芯 Iluvatar Corex
 
-For models compatible with Iluvatar Extension for PyTorch. Here's a step-by-step guide tailored to your platform and installation method:
+适用于兼容 Iluvatar Extension for PyTorch 的模型。以下是按平台和安装方式整理的步骤：
 
-1. Install the Iluvatar Corex Toolkit by adhering to the platform-specific instructions on the [Installation](https://support.iluvatar.com/#/DocumentCentre?id=1&nameCenter=2&productId=520117912052801536)
-2. Launch ComfyUI by running `python main.py`
+1. 按[安装](https://support.iluvatar.com/#/DocumentCentre?id=1&nameCenter=2&productId=520117912052801536)页面的平台相关说明安装 Iluvatar Corex Toolkit
+2. 运行 `python main.py` 启动 ComfyUI
 
 
 ## [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager/tree/manager-v4)
 
-**ComfyUI-Manager** is an extension that allows you to easily install, update, and manage custom nodes for ComfyUI.
+**ComfyUI-Manager** 是一个扩展，可让你轻松安装、更新和管理 ComfyUI 的自定义节点。
 
-### Setup
+### 配置
 
-1. Install the manager dependencies:
+1. 安装 Manager 依赖：
    ```bash
    pip install -r manager_requirements.txt
    ```
 
-2. Enable the manager with the `--enable-manager` flag when running ComfyUI:
+2. 启动 ComfyUI 时使用 `--enable-manager` 参数启用 Manager：
    ```bash
    python main.py --enable-manager
    ```
 
-### Command Line Options
+### 命令行选项
 
-| Flag | Description |
+| 参数 | 说明 |
 |------|-------------|
-| `--enable-manager` | Enable ComfyUI-Manager |
-| `--enable-manager-legacy-ui` | Use the legacy manager UI instead of the new UI (implies `--enable-manager`) |
-| `--disable-manager-ui` | Disable the manager UI and endpoints while keeping background features like security checks and scheduled installation completion (requires `--enable-manager`) |
+| `--enable-manager` | 启用 ComfyUI-Manager |
+| `--enable-manager-legacy-ui` | 使用旧版 Manager 界面而非新界面（隐含 `--enable-manager`） |
+| `--disable-manager-ui` | 禁用 Manager 界面和端点，但保留安全检查、计划安装完成等后台功能（需要 `--enable-manager`） |
 
 
-# Running
+# 运行
 
 ```python main.py```
 
-### For AMD cards not officially supported by ROCm
+### 官方 ROCm 不支持的 AMD 显卡
 
-Try running it with this command if you have issues:
+如果遇到问题，可尝试用以下命令运行：
 
-For 6700, 6600 and maybe other RDNA2 or older: ```HSA_OVERRIDE_GFX_VERSION=10.3.0 python main.py```
+对于 6700、6600 及可能的其他 RDNA2 或更旧显卡：```HSA_OVERRIDE_GFX_VERSION=10.3.0 python main.py```
 
-For AMD 7600 and maybe other RDNA3 cards: ```HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py```
+对于 AMD 7600 及可能的其他 RDNA3 显卡：```HSA_OVERRIDE_GFX_VERSION=11.0.0 python main.py```
 
-### AMD ROCm Tips
+### AMD ROCm 提示
 
-You can try setting this env variable `PYTORCH_TUNABLEOP_ENABLED=1` which might speed things up at the cost of a very slow initial run.
+可以尝试设置环境变量 `PYTORCH_TUNABLEOP_ENABLED=1`，这可能会加速运行，但代价是首次运行非常慢。
 
-# Notes
+# 说明
 
-Only parts of the graph that have an output with all the correct inputs will be executed.
+只有图中所有输入都正确的输出部分才会被执行。
 
-Only parts of the graph that change from each execution to the next will be executed, if you submit the same graph twice only the first will be executed. If you change the last part of the graph only the part you changed and the part that depends on it will be executed.
+每次执行时只有发生变化的部分才会执行；如果提交相同的图两次，只有第一次会执行。如果只修改图的最后一部分，则只有你修改的部分及依赖它的部分会执行。
 
-Dragging a generated png on the webpage or loading one will give you the full workflow including seeds that were used to create it.
+将生成的 PNG 拖到网页上或加载它，即可获得完整工作流，包括生成时使用的种子。
 
-You can use () to change emphasis of a word or phrase like: (good code:1.2) or (bad code:0.8). The default emphasis for () is 1.1. To use () characters in your actual prompt escape them like \\( or \\).
+你可以用 () 改变单词或短语的强调权重，例如：(good code:1.2) 或 (bad code:0.8)。() 的默认强调系数为 1.1。若要在实际提示词中使用 () 字符，请转义为 \\( 或 \\)。
 
-You can use {day|night}, for wildcard/dynamic prompts. With this syntax "{wild|card|test}" will be randomly replaced by either "wild", "card" or "test" by the frontend every time you queue the prompt. To use {} characters in your actual prompt escape them like: \\{ or \\}.
+你可以使用 {day|night} 实现通配符/动态提示词。使用该语法时，"{wild|card|test}" 会在每次排队提示词时，被前端随机替换为 "wild"、"card" 或 "test"。若要在实际提示词中使用 {} 字符，请转义为：\\{ 或 \\}。
 
-Dynamic prompts also support C-style comments, like `// comment` or `/* comment */`.
+动态提示词还支持 C 风格注释，例如 `// comment` 或 `/* comment */`。
 
-To use a textual inversion concepts/embeddings in a text prompt put them in the models/embeddings directory and use them in the CLIPTextEncode node like this (you can omit the .pt extension):
+要在文本提示词中使用 textual inversion 概念/嵌入，请将它们放入 models/embeddings 目录，并在 CLIPTextEncode 节点中这样使用（可省略 .pt 扩展名）：
 
 ```embedding:embedding_filename.pt```
 
 
-## How to show high-quality previews?
+## 如何显示高质量预览？
 
-Use ```--preview-method auto``` to enable previews.
+使用 ```--preview-method auto``` 启用预览。
 
-The default installation includes a fast latent preview method that's low-resolution. To enable higher-quality previews with [TAESD](https://github.com/madebyollin/taesd), download the [taesd_decoder.pth, taesdxl_decoder.pth, taesd3_decoder.pth and taef1_decoder.pth](https://github.com/madebyollin/taesd/) and place them in the `models/vae_approx` folder. Once they're installed, restart ComfyUI and launch it with `--preview-method taesd` to enable high-quality previews.
+默认安装包含一个低分辨率的快速 latent 预览方法。要使用 [TAESD](https://github.com/madebyollin/taesd) 启用更高质量的预览，请下载 [taesd_decoder.pth、taesdxl_decoder.pth、taesd3_decoder.pth 和 taef1_decoder.pth](https://github.com/madebyollin/taesd/)，并将它们放入 `models/vae_approx` 文件夹。安装完成后，重启 ComfyUI 并使用 `--preview-method taesd` 启动，即可启用高质量预览。
 
-## How to use TLS/SSL?
-Generate a self-signed certificate (not appropriate for shared/production use) and key by running the command: `openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"`
+## 如何使用 TLS/SSL？
+通过以下命令生成自签名证书（不适用于共享/生产环境）和密钥：`openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 3650 -nodes -subj "/C=XX/ST=StateName/L=CityName/O=CompanyName/OU=CompanySectionName/CN=CommonNameOrHostname"`
 
-Use `--tls-keyfile key.pem --tls-certfile cert.pem` to enable TLS/SSL, the app will now be accessible with `https://...` instead of `http://...`.
+使用 `--tls-keyfile key.pem --tls-certfile cert.pem` 启用 TLS/SSL，应用将可通过 `https://...` 而非 `http://...` 访问。
 
-> Note: Windows users can use [alexisrolland/docker-openssl](https://github.com/alexisrolland/docker-openssl) or one of the [3rd party binary distributions](https://wiki.openssl.org/index.php/Binaries) to run the command example above.
-<br/><br/>If you use a container, note that the volume mount `-v` can be a relative path so `... -v ".\:/openssl-certs" ...` would create the key & cert files in the current directory of your command prompt or powershell terminal.
+> 注意：Windows 用户可以使用 [alexisrolland/docker-openssl](https://github.com/alexisrolland/docker-openssl) 或[第三方二进制发行版](https://wiki.openssl.org/index.php/Binaries)来运行上面的示例命令。
+<br/><br/>如果使用容器，请注意 `-v` 卷挂载可以是相对路径，因此 `... -v ".\:/openssl-certs" ...` 会在当前命令提示符或 PowerShell 终端所在目录创建密钥与证书文件。
 
-## Support and dev channel
+## 支持与开发者频道
 
-[Discord](https://comfy.org/discord): Try the #help or #feedback channels.
+[Discord](https://comfy.org/discord)：可尝试 #help 或 #feedback 频道。
 
-[Matrix space: #comfyui_space:matrix.org](https://app.element.io/#/room/%23comfyui_space%3Amatrix.org) (it's like discord but open source).
+[Matrix 空间：#comfyui_space:matrix.org](https://app.element.io/#/room/%23comfyui_space%3Amatrix.org)（类似 Discord，但开源）。
 
-See also: [https://www.comfy.org/](https://www.comfy.org/)
+另见：[https://www.comfy.org/](https://www.comfy.org/)
 
-> _psst — we're hiring!_ Help build ComfyUI: [comfy.org/careers](https://www.comfy.org/careers)
+> _psst —— 我们正在招聘！_ 一起打造 ComfyUI：[comfy.org/careers](https://www.comfy.org/careers)
 
-## Frontend Development
+## 前端开发
 
-As of August 15, 2024, we have transitioned to a new frontend, which is now hosted in a separate repository: [ComfyUI Frontend](https://github.com/Comfy-Org/ComfyUI_frontend). The compiled JS files (from TS/Vue) are published to [pypi](https://pypi.org/project/comfyui-frontend-package) and installed as a dependency in ComfyUI.
+自 2024 年 8 月 15 日起，我们已切换到新的前端，目前托管在独立仓库：[ComfyUI Frontend](https://github.com/Comfy-Org/ComfyUI_frontend)。编译后的 JS 文件（来自 TS/Vue）发布到 [PyPI](https://pypi.org/project/comfyui-frontend-package)，并作为依赖安装在 ComfyUI 中。
 
-### Reporting Issues and Requesting Features
+### 报告问题与功能请求
 
-For any bugs, issues, or feature requests related to the frontend, please use the [ComfyUI Frontend repository](https://github.com/Comfy-Org/ComfyUI_frontend). This will help us manage and address frontend-specific concerns more efficiently.
+任何与前端相关的 bug、问题或功能请求，请使用 [ComfyUI Frontend 仓库](https://github.com/Comfy-Org/ComfyUI_frontend)。这将帮助我们更高效地管理和处理前端相关问题。
 
-### Using the Latest Frontend
+### 使用最新前端
 
-The new frontend is now the default for ComfyUI. However, please note:
+新前端现已成为 ComfyUI 的默认选择。但请注意：
 
-1. The frontend in the main ComfyUI repository is updated fortnightly.
-2. Daily releases are available in the separate frontend repository.
+1. 主 ComfyUI 仓库中的前端每两周更新一次。
+2. 独立的前端仓库提供每日发布版本。
 
-To use the most up-to-date frontend version:
+要使用最新的前端版本：
 
-1. For the latest daily release, launch ComfyUI with this command line argument:
+1. 使用以下命令行参数启动 ComfyUI 以获取最新每日版本：
 
    ```
    --front-end-version Comfy-Org/ComfyUI_frontend@latest
    ```
 
-2. For a specific version, replace `latest` with the desired version number:
+2. 如需特定版本，请将 `latest` 替换为所需版本号：
 
    ```
    --front-end-version Comfy-Org/ComfyUI_frontend@1.2.2
    ```
 
-This approach allows you to easily switch between the stable fortnightly release and the cutting-edge daily updates, or even specific versions for testing purposes.
+这样你就能轻松在稳定的双周版本与最新的每日更新之间切换，甚至可为测试目的指定特定版本。
 
-# QA
+# 常见问题
 
-### Which GPU should I buy for this?
+### 我应该买哪款 GPU？
 
-[See this page for some recommendations](https://github.com/comfyanonymous/ComfyUI/wiki/Which-GPU-should-I-buy-for-ComfyUI)
+[参见此页面获取一些建议](https://github.com/comfyanonymous/ComfyUI/wiki/Which-GPU-should-I-buy-for-ComfyUI)
