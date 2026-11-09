@@ -1,11 +1,3 @@
 {
-    "Comfy.Locale": "zh",
-    "Comfy.InstalledVersion": "1.58.5",
-    "Comfy.TutorialCompleted": true,
-    "Comfy.Templates.SortBy": "popular",
-    "Comfy.WorkflowActions.SeenItems": [
-        "deploy-as-api"
-    ],
-    "Comfy.Minimap.Visible": false,
-    "Comfy.RightSidePanel.IsOpen": true
+  "Comfy.Locale": "zh"
 }
