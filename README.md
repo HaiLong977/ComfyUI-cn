@@ -1,6 +1,6 @@
 <div align="center">
 
-# ComfyUI
+# ComfyUI 汉化
 **The most powerful and modular AI engine for content creation.**
 
 
