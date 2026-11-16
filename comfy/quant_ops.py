@@ -44,6 +44,7 @@ try:
 except ImportError as e:
     logging.error(f"Failed to import comfy_kitchen, Error: {e}, fp8 and fp4 support will not be available.")
     _CK_AVAILABLE = False
+    ck = None
 
     class QuantizedTensor:
         pass
