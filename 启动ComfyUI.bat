@@ -60,32 +60,16 @@ rem ============ 2. 依赖检查（缺失时自动安装） ============
 echo [4/4] 检查依赖...
 python\python.exe -c "import torch, torchvision, yaml, aiohttp, scipy, comfy_kitchen, PIL, psutil" >nul 2>nul
 if errorlevel 1 goto INSTALL_DEPS
-goto CHECK_GPU_TORCH
+goto ENSURE_GPU_TORCH
 
 :INSTALL_DEPS
 echo.
-echo 检测到依赖缺失，开始安装（首次安装 torch 约 200MB~2.5GB，取决于网络速度）...
+echo 检测到依赖缺失，开始安装（首次安装 torch 约 200MB~3GB，取决于显卡与网络）...
 echo.
-
-set "PIP_INDEX=-i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com"
-where nvidia-smi >nul 2>nul
-if errorlevel 1 goto INSTALL_CPU_TORCH
-
-echo [PyTorch] 检测到 NVIDIA 显卡，安装 CUDA 版...
-python\python.exe -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128 --timeout 120
-python\python.exe -c "import torch,sys; sys.exit(0 if torch.cuda.is_available() else 1)" >nul 2>nul
-if not errorlevel 1 goto INSTALL_REQ
-echo [PyTorch] CUDA 版不可用，改用 CPU 版...
-goto INSTALL_CPU_TORCH
-
-:INSTALL_CPU_TORCH
-echo [PyTorch] 安装 CPU 版...
-python\python.exe -m pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu --timeout 120
-
-:INSTALL_REQ
+call :INSTALL_TORCH
 echo.
 echo [依赖] 安装 requirements.txt（使用阿里云镜像）...
-python\python.exe -m pip install -r requirements.txt %PIP_INDEX% --timeout 120
+python\python.exe -m pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com --timeout 120
 echo.
 echo [依赖] 官方源补缺...
 python\python.exe -m pip install -r requirements.txt --timeout 120
@@ -98,24 +82,55 @@ if errorlevel 1 (
     pause
     exit /b 1
 )
+goto DEPS_OK
 
-:CHECK_GPU_TORCH
-rem 有 NVIDIA 显卡但 torch 是 CPU 版时（例如从别的机器拷来），补装 CUDA 版
+:ENSURE_GPU_TORCH
+rem 有 NVIDIA 显卡但 torch 是 CPU 版时（例如从别的机器拷来），改装 GPU 版
 where nvidia-smi >nul 2>nul
 if errorlevel 1 goto DEPS_OK
 python\python.exe -c "import torch,sys; sys.exit(0 if torch.cuda.is_available() else 1)" >nul 2>nul
 if not errorlevel 1 goto DEPS_OK
 
 echo.
-echo [PyTorch] 检测到 NVIDIA 显卡，但当前 torch 是 CPU 版，正在安装 CUDA 版（约 2.5 GB）...
-python\python.exe -m pip install --force-reinstall torch torchvision --index-url https://download.pytorch.org/whl/cu128 --timeout 120
+echo [PyTorch] 检测到 NVIDIA 显卡，但当前 torch 是 CPU 版，正在安装 GPU 版...
+call :INSTALL_TORCH
+goto DEPS_OK
+
+rem ---------------------------------------------------------------
+rem 安装 torch：按显卡驱动支持的 CUDA 版本选择对应的官方 wheel 索引
+rem 返回码无用，成功后 torch.cuda.is_available() 为真，否则已回退 CPU
+rem ---------------------------------------------------------------
+:INSTALL_TORCH
+set "TORCH_INDEX=https://download.pytorch.org/whl/cu121"
+where nvidia-smi >nul 2>nul
+if errorlevel 1 goto TORCH_CPU
+
+set "CUDAVER="
+for /f "tokens=9" %%a in ('nvidia-smi ^| findstr /C:"CUDA Version"') do set "CUDAVER=%%a"
+if not defined CUDAVER goto TORCH_INSTALL
+for /f "tokens=1,2 delims=." %%a in ("%CUDAVER%") do (
+    set "CU_MAJ=%%a"
+    set "CU_MIN=%%b"
+)
+echo [PyTorch] 显卡驱动支持 CUDA %CUDAVER%
+if "%CU_MAJ%"=="13" set "TORCH_INDEX=https://download.pytorch.org/whl/cu130"
+if "%CU_MAJ%"=="12" if %CU_MIN% GEQ 6 set "TORCH_INDEX=https://download.pytorch.org/whl/cu126"
+if "%CU_MAJ%"=="12" if %CU_MIN% GEQ 8 set "TORCH_INDEX=https://download.pytorch.org/whl/cu128"
+if "%CU_MAJ%"=="12" if %CU_MIN% GEQ 9 set "TORCH_INDEX=https://download.pytorch.org/whl/cu129"
+:TORCH_INSTALL
+echo [PyTorch] 正在从 %TORCH_INDEX% 安装 GPU 版（首次约 2.5 GB）...
+python\python.exe -m pip install --force-reinstall torch torchvision --index-url %TORCH_INDEX% --timeout 120
 python\python.exe -c "import torch,sys; sys.exit(0 if torch.cuda.is_available() else 1)" >nul 2>nul
 if not errorlevel 1 (
-    echo [PyTorch] CUDA 版安装完成。
-) else (
-    echo [警告] CUDA 版安装失败或显卡驱动过旧，将使用 CPU 模式启动。
-    echo        如需 GPU 加速，请先更新 NVIDIA 显卡驱动后重新运行本脚本。
+    echo [PyTorch] GPU 版安装完成。
+    exit /b 0
 )
+echo [警告] GPU 版安装失败或显卡驱动过旧，回退 CPU 版。
+
+:TORCH_CPU
+echo [PyTorch] 安装 CPU 版...
+python\python.exe -m pip install --force-reinstall torch torchvision --index-url https://download.pytorch.org/whl/cpu --timeout 120
+exit /b 0
 
 :DEPS_OK
 rem ============ 3. 最终校验 ============
@@ -124,7 +139,7 @@ if errorlevel 1 (
     echo [警告] 依赖校验未通过，尝试继续启动...
 )
 
-rem ============ 4. 启动（按 torch 实际能力决定 CPU/GPU，不看显卡是否存在） ============
+rem ============ 4. 启动（以 torch 实际能力为准） ============
 set "DEVICE_ARG="
 set "DEVICE_TEXT=使用 GPU 加速"
 python\python.exe -c "import torch,sys; sys.exit(0 if torch.cuda.is_available() else 1)" >nul 2>nul
