@@ -25,3 +25,6 @@ filtered-openapi.yaml
 uv.lock
 .comfy_environment
 /previews/
+# 便携运行时与本地打包脚本，不入库
+/python/
+/_gen_portable_bat.py
