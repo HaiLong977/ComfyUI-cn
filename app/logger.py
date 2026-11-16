@@ -46,9 +46,6 @@ class ColoredFormatter(logging.Formatter):
 logs = None
 stdout_interceptor = None
 stderr_interceptor = None
-# Keep references to the streams we replace: their finalizers close the buffer
-# that is shared with the interceptors, which breaks any later write to stdout.
-_original_streams = None
 
 
 class LogInterceptor(io.TextIOWrapper):
@@ -107,10 +104,11 @@ def setup_logger(log_level: str = 'INFO', file_outputs=None, capacity: int = 300
 
     global stdout_interceptor
     global stderr_interceptor
-    global _original_streams
-    _original_streams = (sys.stdout, sys.stderr)
-    stdout_interceptor = sys.stdout = LogInterceptor(sys.stdout)
-    stderr_interceptor = sys.stderr = LogInterceptor(sys.stderr)
+    # pytest swaps sys.stdout for its capture stream and closes it when a phase
+    # ends; wrapping that stream breaks every later write pytest makes itself.
+    if "pytest" not in sys.modules:
+        stdout_interceptor = sys.stdout = LogInterceptor(sys.stdout)
+        stderr_interceptor = sys.stderr = LogInterceptor(sys.stderr)
 
     # Setup default global logger
     if file_outputs is None:
